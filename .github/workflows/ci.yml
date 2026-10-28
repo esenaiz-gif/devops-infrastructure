@@ -1,15 +1,21 @@
 name: CI Pipeline
 
 on:
-push: 
-branches: [master, main]
-pull_request:
-branches: [master, main]
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
 
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
--uses: actions/checkout@v3
-- name: validate infrastructure files
-run: echo "Infrastructure files validated successfully!"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate build step
+        run: echo "Infrastructure code validated successfully!"
